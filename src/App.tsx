@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ReservationProvider } from "./context/ReservationContext";
+import { ToastProvider } from "./context/ToastContext";
+import { AppTab, NavBar } from "./components/NavBar/NavBar";
+import { CalendarView } from "./components/CalendarView/CalendarView";
+import { SearchReservations } from "./components/SearchReservations/SearchReservations";
+import { AdminPanel } from "./components/AdminPanel/AdminPanel";
 
-function App() {
+const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<AppTab>("client");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ToastProvider>
+      <ReservationProvider>
+        <div className="min-vh-100 d-flex flex-column">
+          <NavBar activeTab={activeTab} onChangeTab={setActiveTab} />
+
+          <main className="container-xxl flex-grow-1 py-4 px-3">
+            {activeTab === "client" && <CalendarView />}
+
+            {activeTab === "search" && <SearchReservations />}
+
+            {activeTab === "admin" && <AdminPanel />}
+          </main>
+        </div>
+      </ReservationProvider>
+    </ToastProvider>
   );
-}
+};
 
 export default App;

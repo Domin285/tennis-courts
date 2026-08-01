@@ -1,0 +1,544 @@
+.wrapper {
+  width: 100%;
+  margin-top: 1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--bs-body-bg);
+}
+
+.monthWrapper,
+.dayWrapper,
+.weekWrapper {
+  min-width: 0;
+}
+
+.legend {
+  min-height: 52px;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid
+    var(--bs-border-color);
+  background: var(--bs-tertiary-bg);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  color: var(--bs-body-color);
+  font-size: 0.875rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.legendMarker {
+  width: 0.8rem;
+  height: 0.8rem;
+  flex: 0 0 auto;
+
+  border: 1px solid
+    rgba(15, 23, 42, 0.18);
+  border-radius: 50%;
+}
+
+.markerFree {
+  background: var(--bs-body-bg);
+}
+
+.markerBusy {
+  background: var(--bs-primary);
+}
+
+.markerPast {
+  background: var(--bs-secondary-bg);
+}
+
+.scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.calendarTable,
+.monthTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.calendarTable {
+  margin: 0;
+}
+
+.dayTable {
+  min-width: 100%;
+}
+
+.weekTable {
+  min-width: 980px;
+}
+
+.calendarTable thead th,
+.monthTable thead th {
+  padding: 0.75rem 0.5rem;
+
+  background: var(--bs-primary);
+  color: var(--bs-white);
+
+  font-size: 0.875rem;
+  font-weight: 750;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.calendarTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.hourColumn {
+  width: 76px;
+  min-width: 76px;
+  max-width: 76px;
+
+  position: sticky;
+  left: 0;
+  z-index: 2;
+
+  padding: 0.5rem;
+
+  background: var(--bs-tertiary-bg) !important;
+  color: var(--bs-body-color);
+
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.calendarTable thead .hourColumn {
+  z-index: 5;
+
+  background: var(--bs-primary) !important;
+  color: var(--bs-white);
+}
+
+.slot {
+  --bs-table-bg: var(--bs-body-bg);
+
+  height: 64px;
+  padding: 0 !important;
+
+  position: relative;
+  vertical-align: middle;
+
+  transition:
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.slotFree {
+  --bs-table-bg: var(--bs-body-bg);
+}
+
+.slotFree:hover {
+  --bs-table-bg: rgba(
+    6,
+    95,
+    70,
+    0.06
+  );
+}
+
+.slotDisabled {
+  --bs-table-bg:
+    var(--bs-secondary-bg-subtle);
+}
+
+.slotBusy {
+  --bs-table-bg: rgba(
+    6,
+    95,
+    70,
+    0.08
+  );
+}
+
+.slotSelected {
+  --bs-table-bg: rgba(
+    6,
+    95,
+    70,
+    0.16
+  );
+
+  box-shadow:
+    inset 0 0 0 3px
+    var(--bs-primary);
+}
+
+.slotButton {
+  width: 100%;
+  height: 100%;
+  min-height: 62px;
+  padding: 0.25rem;
+
+  position: relative;
+
+  display: block;
+
+  border: 0;
+  background: transparent;
+  color: inherit;
+
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+
+.slotButton:hover {
+  background: transparent;
+}
+
+.slotButton:focus-visible {
+  z-index: 4;
+
+  outline: 3px solid
+    var(--bs-info);
+  outline-offset: -3px;
+}
+
+.slotButton[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.event {
+  width: 100%;
+  height: 100%;
+  min-height: 52px;
+  padding: 0.35rem 0.45rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.55rem;
+  box-shadow:
+    0 0.15rem 0.4rem
+    rgba(15, 23, 42, 0.18);
+
+  font-size: 0.76rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.monthTable {
+  min-width: 760px;
+  margin: 0;
+}
+
+.monthTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.monthCell {
+  --bs-table-bg: var(--bs-body-bg);
+
+  width: calc(100% / 7);
+  height: 118px;
+  padding: 0 !important;
+
+  position: relative;
+  vertical-align: top;
+}
+
+.monthCellFree {
+  --bs-table-bg: var(--bs-body-bg);
+}
+
+.monthCellBusy {
+  --bs-table-bg: rgba(
+    6,
+    95,
+    70,
+    0.06
+  );
+}
+
+.monthCellPast {
+  --bs-table-bg:
+    var(--bs-secondary-bg-subtle);
+}
+
+.monthCellMuted {
+  opacity: 0.55;
+}
+
+.monthCellToday {
+  box-shadow:
+    inset 0 0 0 3px
+    var(--bs-primary);
+}
+
+.monthButton {
+  width: 100%;
+  height: 100%;
+  min-height: 116px;
+  padding: 0.65rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  border: 0;
+  background: transparent;
+  color: var(--bs-body-color);
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.monthButton:hover {
+  background: rgba(
+    6,
+    95,
+    70,
+    0.07
+  );
+}
+
+.monthButton:focus-visible {
+  z-index: 3;
+
+  outline: 3px solid
+    var(--bs-info);
+  outline-offset: -3px;
+}
+
+.monthButton[aria-disabled="true"] {
+  color: var(--bs-secondary-color);
+  cursor: not-allowed;
+}
+
+.monthTop {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.monthDay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2rem;
+  height: 2rem;
+
+  border-radius: 50%;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.monthCellToday .monthDay {
+  background: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.monthBadge {
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding-inline: 0.4rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  background: var(--bs-primary);
+  color: var(--bs-white);
+
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.monthHint {
+  margin-top: auto;
+
+  color: var(--bs-secondary-color);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.monthCellBusy .monthHint {
+  color: var(--bs-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .weekTable {
+    min-width: 900px;
+  }
+
+  .monthTable {
+    min-width: 720px;
+  }
+
+  .slot {
+    height: 60px;
+  }
+
+  .slotButton {
+    min-height: 58px;
+  }
+
+  .event {
+    min-height: 48px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .wrapper {
+    margin-top: 0.85rem;
+    border-radius: 0.85rem;
+  }
+
+  .legend {
+    min-height: 48px;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .legendItem {
+    font-size: 0.8rem;
+  }
+
+  .dayTable {
+    min-width: 100%;
+  }
+
+  .weekTable {
+    min-width: 840px;
+  }
+
+  .monthTable {
+    min-width: 680px;
+  }
+
+  .calendarTable thead th,
+  .monthTable thead th {
+    padding: 0.65rem 0.4rem;
+    font-size: 0.78rem;
+  }
+
+  .hourColumn {
+    width: 66px;
+    min-width: 66px;
+    max-width: 66px;
+    font-size: 0.78rem;
+  }
+
+  .monthCell {
+    height: 106px;
+  }
+
+  .monthButton {
+    min-height: 104px;
+    padding: 0.5rem;
+  }
+
+  .monthHint {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .legend {
+    gap: 0.65rem !important;
+  }
+
+  .legendMarker {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .weekTable {
+    min-width: 790px;
+  }
+
+  .monthTable {
+    min-width: 630px;
+  }
+
+  .slot {
+    height: 58px;
+  }
+
+  .slotButton {
+    min-height: 56px;
+  }
+
+  .event {
+    min-height: 46px;
+    padding: 0.3rem;
+    font-size: 0.68rem;
+  }
+
+  .monthCell {
+    height: 96px;
+  }
+
+  .monthButton {
+    min-height: 94px;
+    padding: 0.45rem;
+  }
+
+  .monthDay {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
+  }
+
+  .monthBadge {
+    min-width: 1.4rem;
+    height: 1.4rem;
+    font-size: 0.68rem;
+  }
+
+  .monthHint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .legendMarker,
+  .slotSelected,
+  .monthCellToday {
+    forced-color-adjust: none;
+  }
+
+  .slotSelected,
+  .monthCellToday {
+    outline: 2px solid
+      CanvasText;
+  }
+}

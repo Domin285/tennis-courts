@@ -1,0 +1,162 @@
+.container {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1080;
+
+  width: min(
+    420px,
+    calc(100vw - 2rem)
+  );
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  pointer-events: none;
+}
+
+.toast {
+  width: 100%;
+  min-height: 64px;
+  margin: 0;
+  padding: 0.9rem 1rem;
+
+  position: relative;
+
+  align-items: center !important;
+
+  border-width: 1px;
+  border-left-width: 5px;
+  border-radius: 0.9rem;
+
+  box-shadow:
+    0 0.75rem 2rem
+    rgba(15, 23, 42, 0.2);
+
+  pointer-events: auto;
+}
+
+.success {
+  border-color: #15803d;
+  background: #f0fdf4;
+  color: #14532d;
+}
+
+.error {
+  border-color: #dc2626;
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid currentColor;
+  border-radius: 50%;
+
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.message {
+  min-width: 0;
+  flex: 1 1 auto;
+
+  margin: 0;
+
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.45;
+
+  overflow-wrap: anywhere;
+}
+
+.closeButton {
+  flex: 0 0 auto;
+
+  margin: 0;
+  padding: 0.65rem;
+
+  font-size: 0.72rem;
+}
+
+.toast:focus-within {
+  outline: 3px solid
+    var(--bs-info);
+  outline-offset: 3px;
+}
+
+@media (max-width: 575.98px) {
+  .container {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+
+    width: auto;
+  }
+
+  .toast {
+    min-height: 58px;
+    padding: 0.8rem 0.85rem;
+
+    border-radius: 0.8rem;
+  }
+
+  .message {
+    font-size: 0.85rem;
+  }
+
+  .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toast {
+    animation:
+      toastEnter
+      180ms ease-out;
+  }
+}
+
+@keyframes toastEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(0.75rem)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@media (forced-colors: active) {
+  .toast {
+    border:
+      2px solid
+      CanvasText;
+  }
+
+  .icon {
+    border-color: currentColor;
+  }
+}

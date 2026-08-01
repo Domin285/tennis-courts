@@ -1,0 +1,217 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1070;
+
+  padding: 1.25rem;
+
+  display: grid;
+  place-items: center;
+
+  overflow-y: auto;
+
+  background: rgba(15, 23, 42, 0.72);
+
+  backdrop-filter: blur(3px);
+}
+
+.dialog {
+  width: min(100%, 500px);
+
+  overflow: hidden;
+
+  border: 0;
+  border-radius: 1rem;
+
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+
+  box-shadow:
+    0 1.5rem 4rem
+    rgba(15, 23, 42, 0.3);
+}
+
+.dialog:focus {
+  outline: none;
+}
+
+.dialog:focus-visible {
+  outline: 3px solid var(--bs-info);
+  outline-offset: 4px;
+}
+
+.header {
+  padding: 1.25rem;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--bs-danger);
+  border-radius: 50%;
+
+  background: var(--bs-danger-bg-subtle);
+  color: var(--bs-danger);
+
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.headerContent {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.title {
+  margin: 0;
+
+  color: var(--bs-body-color);
+
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.description {
+  margin-top: 0.55rem;
+
+  color: var(--bs-secondary-color);
+
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
+}
+
+.closeButton {
+  flex: 0 0 auto;
+
+  margin-top: 0.15rem;
+}
+
+.actions {
+  padding: 1rem 1.25rem 1.25rem;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+
+  border-top: 1px solid var(--bs-border-color);
+
+  background: var(--bs-tertiary-bg);
+}
+
+.actions :global(.btn) {
+  min-width: 115px;
+  min-height: 42px;
+
+  font-weight: 700;
+}
+
+@media (max-width: 575.98px) {
+  .backdrop {
+    padding: 0;
+
+    place-items: end stretch;
+  }
+
+  .dialog {
+    width: 100%;
+
+    border-radius:
+      1rem
+      1rem
+      0
+      0;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .icon {
+    width: 2.25rem;
+    height: 2.25rem;
+
+    font-size: 1.1rem;
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+
+  .actions {
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .actions :global(.btn) {
+    width: 100%;
+  }
+
+  .actions :global(.btn-danger),
+  .actions :global(.btn-primary) {
+    grid-row: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .backdrop {
+    animation: backdropEnter 150ms ease-out;
+  }
+
+  .dialog {
+    animation: dialogEnter 180ms ease-out;
+  }
+}
+
+@keyframes backdropEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(0.75rem)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@media (forced-colors: active) {
+  .dialog,
+  .icon {
+    border: 2px solid CanvasText;
+  }
+}

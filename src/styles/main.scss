@@ -1,0 +1,95 @@
+$primary: #065f46;
+$secondary: #64748b;
+$success: #15803d;
+$danger: #dc2626;
+$warning: #f59e0b;
+$info: #0284c7;
+$light: #f8fafc;
+$dark: #111827;
+
+$body-bg: #f4f7f5;
+$body-color: #111827;
+
+$font-family-sans-serif:
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+$border-color: #dfe5e2;
+
+$border-radius: 0.75rem;
+$border-radius-sm: 0.5rem;
+$border-radius-lg: 1rem;
+$border-radius-xl: 1.25rem;
+$border-radius-xxl: 1.5rem;
+
+$box-shadow-sm:
+  0 0.125rem 0.5rem
+  rgba(15, 23, 42, 0.08);
+
+$box-shadow:
+  0 0.5rem 1.25rem
+  rgba(15, 23, 42, 0.12);
+
+$box-shadow-lg:
+  0 1rem 3rem
+  rgba(15, 23, 42, 0.18);
+
+$btn-border-radius: 999px;
+$btn-border-radius-sm: 999px;
+$btn-border-radius-lg: 999px;
+
+$btn-font-weight: 700;
+
+$btn-padding-y: 0.55rem;
+$btn-padding-x: 1.1rem;
+
+$btn-padding-y-sm: 0.4rem;
+$btn-padding-x-sm: 0.8rem;
+
+$btn-padding-y-lg: 0.7rem;
+$btn-padding-x-lg: 1.35rem;
+
+$input-border-color: #cbd5e1;
+$input-border-radius: 0.65rem;
+$input-border-radius-sm: 0.5rem;
+$input-border-radius-lg: 0.8rem;
+
+$input-padding-y: 0.6rem;
+$input-padding-x: 0.85rem;
+
+$input-focus-border-color: #047857;
+
+$input-focus-box-shadow:
+  0 0 0 0.2rem
+  rgba(5, 150, 105, 0.18);
+
+$form-select-border-radius: 0.65rem;
+
+$card-border-radius: 1rem;
+$card-border-color: #e2e8f0;
+$card-cap-bg: #f8fafc;
+
+$table-cell-padding-y: 0.75rem;
+$table-cell-padding-x: 0.85rem;
+
+$table-hover-bg:
+  rgba(6, 95, 70, 0.045);
+
+$modal-content-border-width: 0;
+$modal-content-border-radius: 1.15rem;
+$modal-backdrop-opacity: 0.65;
+
+$focus-ring-width: 0.2rem;
+$focus-ring-opacity: 0.25;
+
+$focus-ring-color:
+  rgba(2, 132, 199, 0.65);
+
+@import "bootstrap/scss/bootstrap";
+@import "../styles.scss";

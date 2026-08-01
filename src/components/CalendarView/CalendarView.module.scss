@@ -1,0 +1,277 @@
+.calendarView {
+  width: 100%;
+}
+
+.controlCard {
+  overflow: visible;
+
+  border-radius: 1rem;
+}
+
+.controlLegend {
+  float: none;
+
+  width: auto;
+  margin: 0 0 0.85rem;
+  padding: 0;
+
+  color: var(--bs-primary);
+
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.courtButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.courtButton {
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
+
+  border-width: 2px;
+  border-radius: 999px;
+
+  font-weight: 700;
+  white-space: nowrap;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.courtButton:hover {
+  transform: translateY(-1px);
+}
+
+.courtButton:active {
+  transform: translateY(0);
+}
+
+.courtButtonActive {
+  --bs-btn-color:
+    var(--court-text-color);
+  --bs-btn-bg:
+    var(--court-color);
+  --bs-btn-border-color:
+    var(--court-color);
+
+  --bs-btn-hover-color:
+    var(--court-text-color);
+  --bs-btn-hover-bg:
+    var(--court-color);
+  --bs-btn-hover-border-color:
+    var(--court-color);
+
+  --bs-btn-active-color:
+    var(--court-text-color);
+  --bs-btn-active-bg:
+    var(--court-color);
+  --bs-btn-active-border-color:
+    var(--court-color);
+
+  --bs-btn-disabled-color:
+    var(--court-text-color);
+  --bs-btn-disabled-bg:
+    var(--court-color);
+  --bs-btn-disabled-border-color:
+    var(--court-color);
+
+  border-color:
+    var(--court-color);
+  background-color:
+    var(--court-color);
+  color:
+    var(--court-text-color);
+
+  box-shadow:
+    0 0.2rem 0.55rem
+    rgba(15, 23, 42, 0.16);
+}
+
+.courtButtonActive:hover,
+.courtButtonActive:focus-visible,
+.courtButtonActive:active {
+  border-color:
+    var(--court-color);
+
+  background-color:
+    var(--court-color);
+
+  color:
+    var(--court-text-color);
+}
+
+.courtButtonActive:focus-visible {
+  box-shadow:
+    0 0 0 0.25rem
+    rgba(2, 132, 199, 0.35);
+}
+
+.courtButtonInactive {
+  --bs-btn-color:
+    var(--court-color);
+  --bs-btn-bg:
+    var(--bs-body-bg);
+  --bs-btn-border-color:
+    var(--court-color);
+
+  --bs-btn-hover-color:
+    var(--court-text-color);
+  --bs-btn-hover-bg:
+    var(--court-color);
+  --bs-btn-hover-border-color:
+    var(--court-color);
+
+  --bs-btn-active-color:
+    var(--court-text-color);
+  --bs-btn-active-bg:
+    var(--court-color);
+  --bs-btn-active-border-color:
+    var(--court-color);
+
+  border-color:
+    var(--court-color);
+
+  background-color:
+    var(--bs-body-bg);
+
+  color:
+    var(--court-color);
+}
+
+.courtButtonInactive:hover,
+.courtButtonInactive:focus-visible {
+  border-color:
+    var(--court-color);
+
+  background-color:
+    var(--court-color);
+
+  color:
+    var(--court-text-color);
+}
+
+.viewButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.viewButton {
+  min-width: 92px;
+  min-height: 44px;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.navigationButton {
+  min-height: 44px;
+
+  padding-inline: 1rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dateHeader {
+  margin-top: 1.25rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+
+  color: var(--bs-body-color);
+
+  font-size:
+    clamp(
+      1rem,
+      2.2vw,
+      1.2rem
+    );
+
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.dateHeaderLabel {
+  color: var(--bs-primary);
+
+  font-weight: 800;
+}
+
+@media (max-width: 767.98px) {
+  .courtButtons,
+  .viewButtons {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .courtButton,
+  .viewButton {
+    width: 100%;
+  }
+
+  .navigation {
+    display: grid;
+    grid-template-columns:
+      1fr
+      1.15fr
+      1fr;
+  }
+
+  .navigationButton {
+    min-width: 0;
+    padding-inline: 0.65rem;
+  }
+
+  .navigationText {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .controlCard {
+    border-radius: 0.85rem;
+  }
+
+  .controlLegend {
+    font-size: 1.3rem;
+  }
+
+  .dateHeader {
+    line-height: 1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .courtButton {
+    transition: none;
+  }
+
+  .courtButton:hover {
+    transform: none;
+  }
+}
